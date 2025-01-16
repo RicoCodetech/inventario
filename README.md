@@ -57,7 +57,7 @@ El programa presenta un menú con las siguientes opciones:
 2. **Modificar producto**: Actualiza la cantidad de unidades.
 3. **Consultar producto**: Busca un producto específico.
 4. **Listar productos de almacén**: Muestra todos los productos registrados.
-5. **Listar productos por seccion
+5. **Listar productos por seccion** Lista los productos por su categoria
 6. **Eliminar un producto**: Elimina un producto por su nombre.
 7. **Salir del programa**: Finaliza la ejecución.
 
@@ -88,4 +88,4 @@ Si deseas contribuir a este proyecto:
 3. Realiza un pull request.
 ---
 
-Para más información o dudas, contacta al desarrollador: **[Tu Nombre o Email]**
+Para más información o dudas, contacta al desarrollador: **[Oscar Rico Martinez]**
