@@ -11,7 +11,7 @@ public class Conexion {
             // Cambia la URL, usuario y contraseña según tu base de datos
             String url = "jdbc:mysql://localhost:3306/inventario";
             String usuario = "root";
-            String contraseña = "mimagia1234!";
+            String contraseña = "password";
 
             conexion = DriverManager.getConnection(url, usuario, contraseña);
             System.out.println("Conexión exitosa a la base de datos.");
