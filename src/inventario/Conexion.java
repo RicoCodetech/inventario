@@ -9,8 +9,8 @@ public class Conexion {
     public Conexion() {
         try {
             // Cambia la URL, usuario y contraseña según tu base de datos
-            String url = "jdbc:mysql://localhost:3306/inventario";
-            String usuario = "root";
+            String url = "jdbc:mysql://localhost:3306/base de datos";
+            String usuario = "user";
             String contraseña = "password";
 
             conexion = DriverManager.getConnection(url, usuario, contraseña);
