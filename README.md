@@ -1,7 +1,7 @@
 # Sistema de Inventario de Bebidas Alcohólicas
 
 ## Introducción
-Este proyecto implementa un sistema de inventario básico para gestionar bebidas alcohólicas almacenadas en un entorno local. El sistema permite realizar operaciones CRUD (crear, leer, actualizar y borrar) sobre los productos, utilizando una base de datos MySQL como almacenamiento y una interfaz basada en línea de comandos.
+Este proyecto implementa un sistema de inventario básico para gestionar bebidas alcohólicas almacenadas en un entorno local. El sistema permite realizar operaciones CRUD (crear, leer, actualizar y borrar) sobre los productos, utilizando una base de datos MySQL como almacenamiento y una interfaz basada en línea de comandos, a modo de ejemplo tambien existe la clase GestionProductos que seria la implementacion usando una estructura de datos.
 
 ## Características principales
 - **Inserción de productos**: Permite agregar nuevas bebidas en secciones predefinidas como Ron, Vodka, etc.
