@@ -1,12 +1,12 @@
 package inventario;
 
-
 import java.util.List;
 
 public interface IGestionBaseDatos {
+
     /**
      * Comprueba si un producto existe en la base de datos.
-     * 
+     *
      * @param nombre Nombre del producto.
      * @return true si el producto existe, false en caso contrario.
      */
@@ -14,7 +14,7 @@ public interface IGestionBaseDatos {
 
     /**
      * Inserta un producto en la base de datos.
-     * 
+     *
      * @param producto Objeto Producto a insertar.
      * @return true si el producto se insertó correctamente, false en caso contrario.
      */
@@ -22,34 +22,41 @@ public interface IGestionBaseDatos {
 
     /**
      * Elimina un producto de la base de datos.
-     * 
+     *
      * @param nombre Nombre del producto a eliminar.
      * @return true si el producto se eliminó correctamente, false en caso contrario.
      */
-    boolean delateProducto(String nombre);
+    boolean deleteProducto(String nombre);
 
     /**
-     * Actualiza un producto en la base de datos.
-     * 
-     * @param nombre Nombre del producto.
-     * @param nuevoAmount Nuevo valor de cantidad (amount) para el producto.
+     * Actualiza la cantidad de unidades de un producto.
+     *
+     * @param nombre         Nombre del producto.
+     * @param cambioCantidad Cantidad a sumar (puede ser negativa).
      * @return true si el producto se actualizó correctamente, false en caso contrario.
      */
-    boolean actualizarCantidadProducto(String nombre, int nuevoAmount);
+    boolean actualizarCantidadProducto(String nombre, int cambioCantidad);
 
     /**
      * Lista todos los productos almacenados en la base de datos.
-     * 
+     *
      * @return Lista de productos.
-
      */
     List<Producto> listarProductos();
 
     /**
      * Lee la información de un producto específico.
-     * 
+     *
      * @param nombre Nombre del producto a leer.
      * @return Objeto Producto si se encuentra, null en caso contrario.
      */
     Producto leerProducto(String nombre);
+
+    /**
+     * Lista los productos que pertenecen a una sección concreta.
+     *
+     * @param section Nombre de la sección.
+     * @return Lista de productos de esa sección.
+     */
+    List<Producto> getProductosSection(String section);
 }

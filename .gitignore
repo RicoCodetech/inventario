@@ -1,0 +1,16 @@
+# Archivos compilados
+bin/
+out/
+
+# Configuración del IDE (Eclipse)
+.classpath
+.project
+.settings/
+*.prefs
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Dependencias locales
+lib/

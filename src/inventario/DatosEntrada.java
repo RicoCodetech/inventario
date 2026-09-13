@@ -3,56 +3,57 @@ package inventario;
 import java.util.Scanner;
 
 public class DatosEntrada {
-	Scanner scanner = new Scanner(System.in);
-	
-	public int opcion() {
-		System.out.println("Selecciona una opcion: ");
-		int opcion = scanner.nextInt();
-		scanner.nextLine();
-		return opcion;
-	}
 
-	public String nombre() {
-		System.out.println("Nombre de la bebida: ");
-		String nombre = scanner.nextLine();
-		return nombre;
-	}
-	
-	public Section section() {
-	    boolean correcto = false;
-	    Section section = null; // Inicializamos fuera del bucle
+    private final Scanner scanner = new Scanner(System.in);
 
-	    while (!correcto) {
-	        System.out.println("Seccion: ");
-	        String seccion = scanner.nextLine();
+    public int opcion() {
+        while (true) {
+            System.out.print("Selecciona una opción: ");
+            if (scanner.hasNextInt()) {
+                int opcion = scanner.nextInt();
+                scanner.nextLine();
+                return opcion;
+            }
+            System.out.println("Entrada inválida, debes ingresar el número de una opción.");
+            scanner.nextLine();
+        }
+    }
 
-	        try {
-	            section = Section.valueOf(seccion.toUpperCase()); // Convertimos a mayúsculas para coincidir con el enum
-	            System.out.println("Sección seleccionada: " + section);
-	            correcto = true; // Salimos del bucle
-	        } catch (IllegalArgumentException e) {
-	            System.out.println("Error: La sección ingresada no es válida. Inténtalo de nuevo.");
-	        }
-	    }
+    public String nombre() {
+        System.out.print("Nombre de la bebida: ");
+        return scanner.nextLine();
+    }
 
-	    return section; // Devolvemos la sección válida
-	}
-	
-	public int amount() {
-		boolean entradaValida = false;
-		int amount=0;
-		
-		while(!entradaValida) {
-			System.out.println("Unidades del producto: ");
-			try {
-				amount = scanner.nextInt();
-				entradaValida=true;
-			} catch (Exception e) {
-				System.out.println("Entrada invalida, debe ingresar un numero entero. ");
-			}
-		}
-		//scanner.close();
-		return amount;
-	}
-	
+    public Section section() {
+        while (true) {
+            System.out.print("Sección: ");
+            String seccion = scanner.nextLine();
+
+            try {
+                Section section = Section.valueOf(seccion.toUpperCase());
+                System.out.println("Sección seleccionada: " + section);
+                return section;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: la sección ingresada no es válida. Inténtalo de nuevo.");
+            }
+        }
+    }
+
+    public int amount() {
+        int amount = 0;
+        boolean entradaValida = false;
+
+        while (!entradaValida) {
+            System.out.print("Unidades del producto: ");
+            if (scanner.hasNextInt()) {
+                amount = scanner.nextInt();
+                entradaValida = true;
+            } else {
+                System.out.println("Entrada inválida, debes ingresar un número entero.");
+                scanner.nextLine();
+            }
+        }
+        scanner.nextLine();
+        return amount;
+    }
 }

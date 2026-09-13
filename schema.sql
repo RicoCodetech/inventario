@@ -1,8 +1,8 @@
-CREATE DATABASE IF NOT EXISTS inventory_db;
-USE inventory_db;
+CREATE DATABASE IF NOT EXISTS inventario;
+USE inventario;
 
-CREATE TABLE IF NOT EXISTS products (
+CREATE TABLE IF NOT EXISTS productos (
     name VARCHAR(255) NOT NULL PRIMARY KEY,
-    amount INT NOT NULL CHECK (amount >= 0),
-    section VARCHAR(255) NOT NULL
+    section VARCHAR(255) NOT NULL,
+    amount INT NOT NULL CHECK (amount >= 0)
 );
