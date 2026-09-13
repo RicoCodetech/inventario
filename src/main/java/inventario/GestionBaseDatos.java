@@ -11,8 +11,12 @@ public class GestionBaseDatos implements IGestionBaseDatos {
 
     private final Connection connection;
 
+    public GestionBaseDatos(Connection connection) {
+        this.connection = connection;
+    }
+
     public GestionBaseDatos(Conexion conexion) {
-        this.connection = conexion.getConexion();
+        this(conexion.getConexion());
     }
 
     @Override
@@ -125,16 +129,16 @@ public class GestionBaseDatos implements IGestionBaseDatos {
     @Override
     public Producto leerProducto(String nombre) {
         String sql = "SELECT * FROM productos WHERE name = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, nombre);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    String name = rs.getString("name");
+                    Section section = Section.valueOf(rs.getString("section"));
+                    int amount = rs.getInt("amount");
 
-            if (rs.next()) {
-                String name = rs.getString("name");
-                Section section = Section.valueOf(rs.getString("section"));
-                int amount = rs.getInt("amount");
-
-                return new Producto(section, name, amount);
+                    return new Producto(section, name, amount);
+                }
             }
         } catch (SQLException e) {
             System.out.println("Error al leer producto: " + e.getMessage());
@@ -146,16 +150,16 @@ public class GestionBaseDatos implements IGestionBaseDatos {
     public List<Producto> getProductosSection(String section) {
         ArrayList<Producto> productos = new ArrayList<>();
         String sql = "SELECT * FROM productos WHERE section = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, section);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    String name = rs.getString("name");
+                    Section seccion = Section.valueOf(rs.getString("section"));
+                    int amount = rs.getInt("amount");
 
-            while (rs.next()) {
-                String name = rs.getString("name");
-                Section seccion = Section.valueOf(rs.getString("section"));
-                int amount = rs.getInt("amount");
-
-                productos.add(new Producto(seccion, name, amount));
+                    productos.add(new Producto(seccion, name, amount));
+                }
             }
         } catch (SQLException e) {
             System.out.println("Error al listar productos: " + e.getMessage());

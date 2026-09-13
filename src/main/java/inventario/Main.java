@@ -11,7 +11,7 @@ public class Main {
         boolean salir = false;
 
         while (!salir) {
-            System.out.println("Sistema de inventario para bebidas alcohólicas");
+            System.out.println("Sistema de inventario de tienda");
             System.out.println();
             System.out.println("Menú:");
             System.out.println("1.- Insertar producto");
@@ -20,7 +20,7 @@ public class Main {
             System.out.println("4.- Listar productos del almacén");
             System.out.println("5.- Eliminar un producto");
             System.out.println("6.- Listar productos por categoría");
-            System.out.println("7.- Salir del almacén");
+            System.out.println("7.- Salir del programa");
 
             int option = entrada.opcion();
 

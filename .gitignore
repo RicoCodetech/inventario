@@ -1,6 +1,7 @@
 # Archivos compilados
 bin/
 out/
+target/
 
 # Configuración del IDE (Eclipse)
 .classpath

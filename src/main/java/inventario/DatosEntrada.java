@@ -20,7 +20,7 @@ public class DatosEntrada {
     }
 
     public String nombre() {
-        System.out.print("Nombre de la bebida: ");
+        System.out.print("Nombre del producto: ");
         return scanner.nextLine();
     }
 
