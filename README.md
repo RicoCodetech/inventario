@@ -66,18 +66,31 @@ $env:DB_PASSWORD="tu_contraseña"
 Si no se definen, se usan los valores por defecto (`root` sin contraseña y la base `inventario`).
 
 ### 3. Compilar y ejecutar
+
+**Opción rápida (scripts de un clic):**
+
+```bash
+# Linux / macOS / WSL
+./run.sh
+
+# Windows (doble clic o desde la terminal)
+run.bat
+```
+
+**Opción manual:**
+
 ```bash
 # Ejecutar los tests
 mvn test
 
-# Compilar el proyecto
+# Generar el JAR ejecutable (incluye el driver MySQL)
 mvn package
 
-# Ejecutar la aplicación (el JAR incluye las dependencias del runtime)
+# Ejecutar la aplicación
 java -jar target/inventario-tienda-1.0.0.jar
 ```
 
-> Nota: `mvn package` genera un JAR que requiere las dependencias en el classpath. Para un ejecutable autocontenido se puede usar el plugin `maven-shade-plugin`.
+> El JAR generado por `mvn package` es autocontenido: incluye el driver JDBC de MySQL, por lo que solo necesitas `java -jar`.
 
 ## Uso
 El programa presenta un menú con las siguientes opciones:
@@ -105,6 +118,8 @@ El programa presenta un menú con las siguientes opciones:
 ├── docs/requeriments/             # Documento de requerimientos (SRS)
 ├── schema.sql                     # Script para inicializar la base de datos
 ├── pom.xml                        # Configuración de Maven
+├── run.sh                         # Script de ejecución (Linux/macOS/WSL)
+├── run.bat                        # Script de ejecución (Windows)
 └── README.md                      # Documentación del proyecto
 ```
 
@@ -117,7 +132,7 @@ El programa presenta un menú con las siguientes opciones:
 - Implementar una interfaz gráfica (JavaFX) para mejorar la experiencia del usuario.
 - Integrar un lector de códigos de barras para gestionar productos mediante un identificador único.
 - Ampliar la funcionalidad para interactuar con sistemas ERP.
-- Generar un JAR autocontenido con Maven Shade.
+- Añadir un instalador o empaquetado con Jlink para distribuir la aplicación.
 
 ## Contribuciones
 Si deseas contribuir a este proyecto:
